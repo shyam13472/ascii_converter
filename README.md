@@ -1,4 +1,6 @@
-# ASCIIGRAFX Video Converter
+# ASCIIGRAFX Video Converter - The Product of SHEG Enterprises Incorporated
+
+(just kidding, it's an open-sourse project)
 
 A small utility that may be used if you want to make an ASCII video
 There are some things to fix that may be done much later
@@ -16,8 +18,10 @@ subprocess.check_output(["<your-path-to-ffmpeg>", "-framerate", str(SAVING_FRAME
 Secondly, launch main.py USING python3
 
 ```bash
-python3 main.py <your-video-file> <compression> <fps> <textures>
+python3 asciigrafx.py <your-video-file>
 ```
+
+This uses the config file named 'config'
 
 Textures are in the file textures.txt
 
