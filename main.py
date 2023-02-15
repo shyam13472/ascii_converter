@@ -5,17 +5,26 @@ import sys
 import subprocess
 import shutil
 
-SAVING_FRAMES_PER_SECOND = 20
+SAVING_FRAMES_PER_SECOND = 30
 COMPRESSION = 5
 
 
 def main():
-    video_file = sys.argv[1]
-    carver(video_file, SAVING_FRAMES_PER_SECOND)
-    conventers(COMPRESSION)
-    subprocess.check_output(["/usr/bin/ffmpeg", "-framerate", str(SAVING_FRAMES_PER_SECOND), "-pattern_type", "glob", "-i", f"{os.getcwd()}/processed/*.jpg", "out.mp4"])
-    shutil.rmtree("not_processed/")
-    shutil.rmtree('processed/')
+    if len(sys.argv) < 2:
+        print('Usage:python main.py <in-video> <compression> <framerate> <textures>')
+    else:
+        video_file = sys.argv[1]
+        video_compression = int(sys.argv[2])
+        video_out_fps = int(sys.argv[3])
+        texturepack = ''
+        with open(sys.argv[4], 'r', encoding='utf8') as fitextures:
+            texturepack = fitextures.readlines()[0]
+        print(texturepack)
+        carver(video_file, video_out_fps)
+        conventers(video_compression, texturepack)
+        subprocess.check_output(["C:\\Users\\EgrZver\\Documents\\ffmpeg-5.1.2-full_build\\bin\\ffmpeg.exe", "-framerate", str(SAVING_FRAMES_PER_SECOND), "-i", f"{os.getcwd()}/processed/%07d.jpg", f"{video_file}-processed.mp4"])
+        shutil.rmtree("not_processed/")
+        shutil.rmtree('processed/')
     
     
 
