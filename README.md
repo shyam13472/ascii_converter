@@ -27,12 +27,12 @@ Textures are in the file textures.txt
 
 ## TODO
 
-* Linux support (to merge with main branch)
-* Path to ffmpeg in the config file
+* Linux support (to merge with main branch) - partitally done, is to be agreed
+* Path to ffmpeg in the config file - done
 * Option to save extracted frames and processed versions of them, not only deleting
 * Sound support (by shyam)
 * Multithread (by shyam)
-* Colorful interface and some improvements of them (requires sty)
+* Colorful interface and some improvements of them (requires sty) - partitally done
 * A feature to use profile files (like config)
 * Returning the feature to process photos
 * And may be more...
