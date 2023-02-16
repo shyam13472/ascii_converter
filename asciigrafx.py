@@ -1,11 +1,9 @@
 from core.scripts.carver import carver
 from core.scripts.handler import conventers
 from core.configfile import ASCIIGRAFXConfigFile
-import os
-import sys
-import subprocess
-import shutil
-import argparse
+import os, sys, subprocess, shutil, argparse
+from sty import fg, rs
+#import sty
 
 DEFAULT_EXTRACTION_FPS = 30
 DEFAULT_ASCII_CHAR_HEIGHT = 5
@@ -14,6 +12,9 @@ DEFAULT_TEXTUREPACK_INDEX = 0
 
 
 def main():
+
+    os.system('') #! DO NOT DELETE!
+
     appArgs = argparse.ArgumentParser(
         description='ASCIIGRAFX graphic converter. SHEG Enterprises Incorporated. All rights reserved.\nProcesses a video in a video in ASCII graphics.'
     )
@@ -43,7 +44,7 @@ def main():
     with open('textures.txt' , 'r', encoding='utf8') as fitextures:
         texturepack = fitextures.readlines()[texturepackIndex]
     print('done')
-
+    #out = 
     print(f'Loaded texturepack: {texturepack}')
 
     print('Beginning the conversion!')
@@ -54,7 +55,7 @@ def main():
     shutil.rmtree("not_processed/")
     shutil.rmtree('processed/')
 
-    print(f'Done! Output file is {video_file}-{extractionFPS}fps-{asciiCharHeight}h-processed.mp4')
+    print(fg.li_green + 'Done!' + rs.fg + f' Output file is {video_file}-{extractionFPS}fps-{asciiCharHeight}h-processed.mp4')
     
     
 
