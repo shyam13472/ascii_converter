@@ -18,10 +18,10 @@ class ASCIIGRAFXConfigFile:
             lines = inconf.readlines()
             if lines[0][:-1] != 'config-file':
                 raise InvalidFileFormat('The given file is not a config file. Extraction has been stopped')
-            for i in range(1, 4):
-                splitLine = lines[i].split(':')
-                self.__conf[splitLine[0]] = splitLine[1][:-1] if splitLine[1][-1] == '\n' else splitLine[1]
-    
+            for i in range(1, len(lines)):
+                line = lines[i]
+                splitLine = (line[:line.find(':')], line[line.find(':') + 1:]) 
+                self.__conf[splitLine[0]] = splitLine[1].rstrip()
     def getConfiguration(self):
         return self.__conf
 

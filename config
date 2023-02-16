@@ -2,3 +2,5 @@ config-file
 extraction-fps:def
 ascii-pixel-char-height:6
 texturepack-index:0
+ffmpeg-path-nt:C:\Users\EgrZver\Documents\ffmpeg-5.1.2-full_build\bin\ffmpeg.exe
+ffmpeg-path-linux:
