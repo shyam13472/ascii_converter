@@ -15,7 +15,7 @@ def auto_dimming_intensity(pixels, dsize):
     avg /= count
     return 4.5 + avg / 90
 
-def conventer(name, name2, dratio=1, dimming_intensity='auto'):
+def conventer(name, name2, texturepack, dratio=1, dimming_intensity='auto'):
     try:
         image = Image.open(name)
     except FileNotFoundError:
@@ -43,7 +43,7 @@ def conventer(name, name2, dratio=1, dimming_intensity='auto'):
     drawing_colour = ImageDraw.Draw(colour_img)
 
     #with open(f'{name.split(".")[-2]}_ascii.txt', 'wb') as f:
-    ascii_symbols = 'Ñ@#W9876543210!abc;:+=-,._                               '
+    ascii_symbols = texturepack
     w, h = 0, 0
     #bar = IncrementalBar(name, max = dsize[0] * dsize[1])
     for row in range(dsize[1]):

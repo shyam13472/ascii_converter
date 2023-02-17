@@ -1,0 +1,4 @@
+*.mp4
+processed/
+not_processed/
+*test*
