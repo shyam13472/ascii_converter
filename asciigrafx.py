@@ -43,18 +43,14 @@ def main():
 
     print(infoMsg + ' Verifying congifuration parameters...', end = '')
     for key in params.keys():
-        if (params[key] == '') and (key not in {'ffmpeg-path-nt', 'ffmpeg-path-linux'}): 
-            raise ConfigVerificationError('%s in the config file is null, value required' % (key))
-        elif key == 'ffmpeg-path-nt' and os.name == 'nt' and params[key] == '':
-            raise ConfigVerificationError('%s in the config file is null, value required' % (key))
-        elif key == 'ffmpeg-path-linux' and os.name != 'nt' and params[key] == '':
+        if params[key] == '': 
             raise ConfigVerificationError('%s in the config file is null, value required' % (key))
     print('done')
 
     texturepackIndex = DEFAULT_TEXTUREPACK_INDEX if params['texturepack-index'] == 'def' else int(params['texturepack-index'])
     extractionFPS = DEFAULT_EXTRACTION_FPS if params['extraction-fps'] == 'def' else int(params['extraction-fps'])
     asciiCharHeight = DEFAULT_ASCII_CHAR_HEIGHT if params['ascii-pixel-char-height'] == 'def' else int(params['ascii-pixel-char-height'])
-    ffmpegPath = params['ffmpeg-path-nt'] if os.name == 'nt' else params['ffmpeg-path-linux']
+    ffmpegPath = params['ffmpeg-path']
 
     print(infoMsg + ' Conversion parameters:')
     print('%s Video extraction FPS: %s\n%s ASCII char height: %s\n%s Texturepack index in textures.txt: %s' % (infoMsg, extractionFPS, infoMsg, asciiCharHeight, infoMsg, texturepackIndex))
